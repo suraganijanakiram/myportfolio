@@ -3,10 +3,261 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Janakiram Suragani | Platform Support Engineer</title>
+<title>Janakiram Suragani | Cloud Support Engineer</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* === SAME CSS AS PROVIDED — UNCHANGED === */
+/* ===== BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Tahoma,Verdana,sans-serif;background:#f8f9fa;color:#333;line-height:1.6;}
+
+/* ===== HEADER ===== */
+header{
+  background:#222;color:#fff;
+  position:fixed;width:100%;top:0;z-index:1000;
+  transition:box-shadow .3s ease, background .3s ease;
+}
+header.scrolled{box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.header-container{
+  max-width:1200px;margin:auto;
+  padding:15px 20px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+}
+.logo{font-size:1.8rem;font-weight:700;color:#fff;text-decoration:none}
+.logo span{color:#4CAF50}
+nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.nav-link,.cv-button{
+  color:#fff;text-decoration:none;
+  padding:8px 14px;border-radius:4px;
+  transition:.3s;position:relative;display:flex;align-items:center;
+  font-size:0.95rem;white-space:nowrap;
+}
+.nav-link:hover{background:rgba(255,255,255,.12)}
+.nav-link.active{color:#4CAF50}
+.nav-link::after{
+  content:"";position:absolute;left:50%;bottom:-5px;width:0;height:3px;
+  background:#4CAF50;transition:.3s ease;transform:translateX(-50%);border-radius:2px
+}
+.nav-link.active::after{width:60%}
+.cv-button{background:#4CAF50;font-weight:600;display:flex;align-items:center;font-size:0.95rem}
+.nav-link i, .cv-button i {margin-right:8px; color: #fff;}
+
+/* Hamburger menu */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap:5px;
+}
+.nav-toggle span {
+  width:25px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
+/* scroll progress bar */
+#scroll-progress{
+  position:fixed;top:0;left:0;
+  height:4px;width:0%;
+  background:linear-gradient(90deg,#4CAF50,#81C784);
+  z-index:2000
+}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 30px}
+.section-container{max-width:1200px;margin:auto}
+
+/* ===== HERO ===== */
+.hero-section{
+  background:linear-gradient(135deg,#222,#444);
+  color:#fff;min-height:100vh;
+  display:flex;align-items:center;
+  padding-top:120px;
+  position:relative;
+}
+.hero-container{
+  display:flex;gap:50px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.profile-img{
+  width:280px;height:280px;
+  border-radius:50%;
+  border:5px solid #fff;
+  object-fit:cover;
+  flex-shrink:0;
+  box-shadow:0 12px 25px rgba(0,0,0,.3);
+}
+.hero-content{flex:1;}
+.hero-content h1{font-size:3rem;margin-bottom:10px;}
+.tagline{color:#4CAF50;font-size:1.7rem;margin-bottom:20px;}
+.hero-content p{margin-bottom:15px;font-size:1.05rem;line-height:1.6;}
+.action-buttons{margin-top:25px;display:flex;gap:15px;flex-wrap:wrap}
+.btn{
+  padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:600;display:flex;align-items:center;
+  gap:8px;transition:.3s;cursor:pointer;
+}
+.btn i {color:#fff;}
+.btn-primary{background:#4CAF50;color:#fff;}
+.btn-primary:hover{background:#43A047;transform:translateY(-3px);}
+.btn-secondary{border:2px solid #fff;color:#fff;}
+.btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);}
+.hero-social{margin-top:25px;display:flex;gap:15px;flex-wrap:wrap}
+.hero-social a{
+  color:#fff;text-decoration:none;
+  padding:10px 16px;
+  background:rgba(255,255,255,.08);
+  border-radius:6px;
+  display:flex;align-items:center;
+  transition:0.3s;
+}
+.hero-social a:hover{background:rgba(255,255,255,.2);transform:translateY(-3px);}
+.hero-social a i{margin-right:8px;}
+
+/* ===== COMMON ===== */
+h2{
+  border-left:5px solid #222;
+  padding-left:20px;
+  font-size:2.4rem;
+  margin-bottom:30px
+}
+.box{
+  background:#fff;padding:20px 30px;
+  border-radius:10px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  border-left:4px solid #2196F3;
+  margin-bottom:25px;
+  transition: transform .3s, box-shadow .3s;
+}
+.box:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.15);}
+
+/* ===== TECHNICAL SKILLS ===== */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:25px;
+}
+.skill-card{
+  background:#fff;border-radius:10px;padding:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position:relative;
+}
+.skill-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.15);}
+.skill-card::before{
+  content:"";
+  position:absolute;top:0;left:0;width:100%;height:6px;
+  border-radius:10px 10px 0 0;
+}
+.skill-card h3{
+  font-size:1.4rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:10px;
+}
+.skill-card h3 i {transition: 0.3s;}
+.skill-card ul{list-style:disc inside;padding-left:20px;}
+.skill-card ul li{margin-bottom:6px;font-size:1rem;color:#555;}
+
+/* Skill colors */
+.skill-linux::before{background:#FF5722}
+.skill-cloud::before{background:#2196F3}
+.skill-automation::before{background:#9C27B0}
+.skill-container::before{background:#00BCD4}
+.skill-monitoring::before{background:#FFC107}
+.skill-ticket::before{background:#4CAF50}
+.skill-linux h3,i{color:#FF5722}
+.skill-cloud h3,i{color:#2196F3}
+.skill-automation h3,i{color:#9C27B0}
+.skill-container h3,i{color:#00BCD4}
+.skill-monitoring h3,i{color:#FFC107}
+.skill-ticket h3,i{color:#4CAF50}
+
+/* ===== EDUCATION ===== */
+.edu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+.edu-card{
+  background:#fff;
+  border-radius:10px;
+  padding:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  transition: transform .3s, box-shadow .3s;
+}
+.edu-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.15);}
+.edu-card i{font-size:2rem;color:#4CAF50;margin-top:5px;}
+.edu-card div{flex:1;}
+.edu-card strong{font-size:1.1rem;display:block;margin-bottom:5px;}
+
+/* ===== CERTIFICATIONS ===== */
+.certificates-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+.cert-card{
+  background:#fff;border-radius:10px;padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  display:flex;align-items:center;gap:15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cert-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.15);}
+.cert-card img{width:50px;height:50px;object-fit:contain;flex-shrink:0;}
+
+/* ===== CONTACT ===== */
+.contact {max-width: 700px;margin: auto;}
+.contact .form-group {position: relative;margin-bottom: 20px;}
+.contact .form-group i {position: absolute;left: 14px;top: 50%;transform: translateY(-50%);color: #aaa;font-size: 1.1rem;pointer-events: none;}
+.contact .form-group input,.contact .form-group textarea{
+  width: 100%;padding: 14px 14px 14px 42px;border-radius: 6px;border: 1px solid #ccc;font-size: 1rem;transition: 0.3s;
+}
+.contact .form-group input:focus,.contact .form-group textarea:focus{border-color:#4CAF50;outline:none;}
+.contact button{
+  margin-top: 10px;background: #4CAF50;color:#fff;padding:14px 20px;border:none;border-radius:6px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:0.3s;
+}
+.contact button:hover{background:#43A047;transform:translateY(-3px);}
+.contact button i { color:#fff;}
+
+/* ===== FOOTER ===== */
+footer{background: rgba(34,34,34,0.95);color:#fff;padding:50px 30px;text-align:center;position:relative;}
+footer .social-links a{
+  display:inline-flex;align-items:center;gap:8px;margin:0 10px;color:#fff;text-decoration:none;font-weight:600;padding:10px 15px;border-radius:6px;transition:all 0.3s ease;
+}
+footer .social-links a:hover{background:#4CAF50;color:#fff;transform:translateY(-3px);}
+footer h2{font-size:1.8rem;color:#4CAF50;margin-bottom:20px;}
+footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
+#back-to-top{position:absolute;right:20px;bottom:20px;background:#4CAF50;color:#fff;padding:10px 14px;border-radius:50%;text-align:center;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+
+/* ===== FADE IN ANIMATION ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
+.fade-visible{opacity:1;transform:translateY(0);}
+
+/* ===== RESPONSIVE FOR MOBILE ===== */
+@media (max-width: 1024px){.header-container{padding:15px 20px;} }
+@media (max-width: 768px){
+  .header-container{flex-direction:column;align-items:center;gap:10px;padding:10px 15px;}
+  nav{flex-direction:column;position:fixed;top:60px;left:-100%;width:100%;background:#222;transition:left 0.3s ease;z-index:999;gap:0;}
+  nav.active{left:0;}
+  .nav-toggle{display:flex;}
+  .nav-link, .cv-button{font-size:0.85rem;padding:10px 20px;width:100%;display:block;}
+  .hero-container{flex-direction:column;align-items:center;text-align:center;gap:15px;padding-top:100px;}
+  .profile-img{width:150px;height:150px;}
+  .hero-content h1{font-size:1.8rem;}
+  .tagline{font-size:1.1rem;}
+  .hero-content p{font-size:0.95rem;}
+  .action-buttons{flex-direction:column;gap:10px;}
+  .hero-social{justify-content:center;gap:10px;}
+  section{padding:50px 15px;}
+  .box,.skill-card,.edu-card,.cert-card{padding:15px;}
+  .skills-grid,.edu-grid,.certificates-grid{grid-template-columns:1fr;gap:15px;}
+  .contact .form-group input,.contact .form-group textarea{font-size:0.9rem;padding:12px 12px 12px 40px;}
+  .contact button{font-size:0.9rem;padding:12px 16px;}
+  footer{padding:30px 15px;text-align:center;}
+  footer .social-links a{margin:5px;font-size:0.85rem;padding:8px 12px;}
+}
 </style>
 </head>
 <body>
@@ -15,7 +266,7 @@
 
 <header>
   <div class="header-container">
-    <a class="logo" href="#home">Janakiram S<span>.</span></a>
+    <a class="logo" href="#home">Janakiram Suragani<span>.</span></a>
     <div class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></div>
     <nav id="main-nav">
       <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
@@ -24,33 +275,25 @@
       <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
       <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
       <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="Janakiram_Resume.pdf" class="cv-button"><i class="fas fa-download"></i> Download CV</a>
+      <a href="Janakiram_Suragani_CV.pdf" class="cv-button"><i class="fas fa-download"></i> Download CV</a>
     </nav>
   </div>
 </header>
-
 <!-- HERO -->
 <section id="home" class="hero-section fade-in">
   <div class="section-container hero-container">
-    <img src="janakiram_photo.png" class="profile-img" alt="Janakiram Suragani">
+    <img src="janakiram_suragani.JPG" class="profile-img" alt="Janakiram Suragani">
     <div class="hero-content">
       <h1>Janakiram Suragani</h1>
-      <div class="tagline">Platform Support Engineer | Linux & Cloud Specialist</div>
-      <p>
-        Platform Support Engineer with 12+ years of experience in Linux, Cloud, Datacenter operations,
-        VMware, Docker, and DevOps tools. Strong expertise in 24/7 production support, ITIL processes,
-        automation using shell scripting and Ansible, and managing high-availability infrastructure.
-        Proven team leader with excellent troubleshooting and documentation skills.
-      </p>
-
+      <div class="tagline">Cloud Support Engineer | Linux Administrator</div>
+      <p>Platform Support Engineer / Linux Engineer with 12+ years of experience delivering secure, highly available, and scalable infrastructure solutions. Extensive expertise in multi-cloud environments (G42, Azure, OCI), datacenter operations, and containerized platforms. Strong background in automation, monitoring, and DevOps practices to streamline operations and improve system reliability. Proven leader in 24/7 production support, ITIL processes, SOP development, and team guidance, with a passion for driving operational excellence through Linux, Cloud, and DevOps technologies.</p>
       <div class="action-buttons">
         <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
-        <a href="Janakiram_Resume.pdf" class="btn btn-secondary"><i class="fas fa-download"></i> Download CV</a>
+        <a href="Janakiram_Suragani_CV.pdf" class="btn btn-secondary"><i class="fas fa-download"></i> Download CV</a>
       </div>
-
       <div class="hero-social">
+        <a href="https://www.linkedin.com/in/suraganijanakiram/"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="https://github.com/suraganijanakiram"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://linuxscripts.blogspot.com"><i class="fas fa-blog"></i> Blog</a>
         <a href="mailto:suraganijanakiram@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         <a href="tel:+971588531465"><i class="fas fa-phone"></i> Phone</a>
       </div>
@@ -58,66 +301,23 @@
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- TECHNICAL SKILLS -->
 <section id="skills" class="fade-in">
   <div class="section-container">
     <h2>Technical Skills</h2>
     <div class="skills-grid">
-
-      <div class="skill-card skill-linux">
-        <h3><i class="fas fa-server"></i> Linux Administration</h3>
-        <ul>
-          <li>RedHat, Ubuntu, CentOS, EulerOS</li>
-          <li>LVM, RAID, Performance Tuning</li>
-          <li>YUM, RPM, APT</li>
-        </ul>
-      </div>
-
-      <div class="skill-card skill-cloud">
-        <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
-        <ul>
-          <li>G42 Cloud</li>
-          <li>Azure</li>
-          <li>OCI</li>
-        </ul>
-      </div>
-
-      <div class="skill-card skill-automation">
-        <h3><i class="fas fa-cogs"></i> Automation & DevOps</h3>
-        <ul>
-          <li>BASH Scripting</li>
-          <li>Ansible</li>
-          <li>CI/CD Basics</li>
-        </ul>
-      </div>
-
-      <div class="skill-card skill-container">
-        <h3><i class="fab fa-docker"></i> Containers</h3>
-        <ul>
-          <li>Docker</li>
-          <li>Docker Swarm</li>
-          <li>Containerized Apps</li>
-        </ul>
-      </div>
-
-      <div class="skill-card skill-monitoring">
-        <h3><i class="fas fa-chart-line"></i> Monitoring</h3>
-        <ul>
-          <li>Zabbix</li>
-          <li>Grafana</li>
-          <li>Nagios, MRTG</li>
-        </ul>
-      </div>
-
-      <div class="skill-card skill-ticket">
-        <h3><i class="fas fa-ticket-alt"></i> ITSM & Tools</h3>
-        <ul>
-          <li>Jira</li>
-          <li>ServiceNow</li>
-          <li>ITIL Processes</li>
-        </ul>
-      </div>
-
+      <div class="skill-card skill-linux"><h3><i class="fas fa-server"></i> Linux Server Administration</h3>
+        <ul><li>RedHat</li><li>SUSE</li><li>CentOS</li><li>Ubuntu</li></ul></div>
+      <div class="skill-card skill-cloud"><h3><i class="fas fa-cloud"></i> Cloud Operations</h3>
+        <ul><li>G42 Cloud</li><li>Microsoft Azure</li><li>OCI</li></ul></div>
+      <div class="skill-card skill-automation"><h3><i class="fas fa-cogs"></i> Automation</h3>
+        <ul><li>Ansible</li><li>AWX</li><li>Python</li><li>Shell Scripting</li></ul></div>
+      <div class="skill-card skill-container"><h3><i class="fab fa-docker"></i> Containerization</h3>
+        <ul><li>Docker Containers</li><li>Kubernetes</li><li>Docker Swarm</li></ul></div>
+      <div class="skill-card skill-monitoring"><h3><i class="fas fa-chart-line"></i> Monitoring & Logging</h3>
+        <ul><li>Zabbix</li><li>Cloud Scope & Cloud Eye</li><li>Grafana & Prometheus</li><li>Nagios</li></ul></div>
+      <div class="skill-card skill-ticket"><h3><i class="fas fa-shield-alt"></i> Ticketing & Documentation</h3>
+        <ul><li>Jira</li><li>ServiceNow</li><li>Confluence</li></ul></div>
     </div>
   </div>
 </section>
@@ -126,51 +326,74 @@
 <section id="experience" class="fade-in">
   <div class="section-container">
     <h2>Experience</h2>
-
+    
     <div class="box">
-      <strong>Tesnus – Platform Support Engineer</strong> (Apr 2025 – Present) | Abu Dhabi
+      <strong><i class="fas fa-building" style="margin-right:6px;color:#4CAF50;"></i>Tesnus Technologies – Cloud Support Engineer</strong> (April 2025 - Present) | Abu Dhabi, UAE
       <ul>
-        <li>Linux server management across dedicated, virtual, and G42 cloud environments</li>
-        <li>Zabbix and Cloud Scope monitoring</li>
-        <li>Docker Swarm cluster setup and application deployment</li>
-        <li>GlusterFS storage for container persistence</li>
-        <li>Documentation and SOP preparation</li>
+        <li>Configure Linux Servers on both cloud and VMware as per client requirements.</li>
+        <li>Implement and enforce baseline OS security configurations and hardening.</li>
+        <li>Patch servers including VM Based with Ansible & Kubernetes nodes.</li>
+        <li>Manage log pipelines using Filebeat, Logstash, Elasticsearch.</li>
+        <li>Monitor cloud infrastructure using Cloud Scope, Cloud Eye, Zabbix, and Grafana.</li>
+        <li>Configure Cloud Scope alarms with SNS for instance state notifications.</li>
+        <li>Manage ECS resources (disks, memory, NICs, EIPs, CPUs) and scale as needed.</li>
+        <li>Install and configure applications on Docker containers.</li>
+        <li>Maintain internal tools: Barman, PrivateBin, FreeIPA IDM, F5 Load Balancer.</li>
+        <li>Administer HSMs (Utimaco) and PKI infrastructure including TLS certificates and local CA.</li>
+        <li>Manage VPN gateway authentication and role-based access controls.</li>
+        <li>Handle hardware fault management including component replacements (Disk, CPU, RAM).</li>
       </ul>
     </div>
-
+    
     <div class="box">
-      <strong>G42 Cloud – System Administrator</strong> (Jun 2022 – Mar 2025)
+      <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#2196F3;"></i>Core42 – System Administrator</strong> (July 2022 - March 2025) | Abu Dhabi, UAE
       <ul>
-        <li>Linux administration and cloud operations</li>
-        <li>Docker cluster management and patching</li>
-        <li>Monitoring, documentation, and automation</li>
+        <li>Create, configure, and implement compute, network, storage & enterprise intelligence services.</li>
+        <li>Setup Autoscaling and Elastic Load Balancers for availability and stability.</li>
+        <li>Enable backups and restore from server and disk backup vaults.</li>
+        <li>Handle hardware fault management including replacements.</li>
+        <li>Perform quarterly patching on VM and Kubernetes CDK clusters; security baseline configurations and vulnerability remediation.</li>
+        <li>Configure and monitor cloud infrastructure using Cloud Scope, Cloud Eye, Zabbix, and Grafana.</li>
+        <li>Setup IAM for users and groups in Infra Tenants.</li>
+        <li>Manage ECS resources and scale infrastructure as needed.</li>
+        <li>Configure local package repositories with Nexus and basic DB administration (Oracle, PostgreSQL).</li>
+        <li>Use Ansible & Ansible Tower for patching and server migration.</li>
+        <li>Manage FreeIPA IDM for user access, SSL certificate renewals, and DNS management.</li>
+        <li>Work with HAProxy to ensure stability of internal applications (Zabbix, FreeIPA, GitLab, Vault, AWX, NetBox, ServiceDesk (JIRA), Confluence).</li>
+        <li>Integrate Ansible playbooks in GitLab CI/CD pipelines for automation.</li>
+        <li>Resolve Level 2 cloud service incidents as per SLA.</li>
+        <li>Work on Docker containers for web and DB servers.</li>
+        <li>Write technical/internal documentation in Confluence and perform RCA & bug reporting in JIRA.</li>
       </ul>
     </div>
-
+    
     <div class="box">
-      <strong>Rackspace – Linux Support Engineer</strong> (Feb 2021 – May 2022)
+      <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>Maersk – Linux Cloud Support Engineer</strong> (Feb 2022 - April 2022) | Bangalore, India
       <ul>
-        <li>24/7 datacenter support for 10,000+ customers</li>
-        <li>ITIL-based incident resolution</li>
-        <li>Web, DB, caching services support</li>
+        <li>Install, configure, and deploy RedHat and SuSE Linux VMs in Azure Cloud.</li>
+        <li>Troubleshoot Linux VM issues and perform patching using Ansible Automation.</li>
+        <li>Manage Azure subscriptions, networking, DNS, and storage volumes (LVM).</li>
+        <li>Commission and decommission servers; schedule snoozing and maintain time sync (NTP, Chrony).</li>
+        <li>Restart, start, stop, and reload required processes; troubleshoot swap space, CPU, and memory utilization.</li>
+        <li>Configure Ethernet and storage switching, LVM management, and server performance tuning.</li>
       </ul>
     </div>
-
+    
     <div class="box">
-      <strong>GlobalFoundries – Sr IT Engineer</strong> (Apr 2019 – Feb 2021)
+      <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#9C27B0;"></i>Infosys – Technology Analyst</strong> (Aug 2017 - Jan 2022) | Bangalore, India
       <ul>
-        <li>Physical & virtual server builds</li>
-        <li>Grafana, ELK monitoring stacks</li>
-        <li>99% uptime for semiconductor servers</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <strong>Optum (UHG) – Sr Systems Mgmt Analyst</strong> (Oct 2016 – Apr 2019)
-      <ul>
-        <li>Team lead for 10 engineers</li>
-        <li>Ansible & Jenkins automation</li>
-        <li>VMware & Linux administration</li>
+        <li>Provided L1 & L2 Linux system administration support for 1300+ Red Hat and SuSE servers.</li>
+        <li>Managed file systems, package installations/upgrades with YUM, RPM, and ZYPPER.</li>
+        <li>Migrated critical production servers without impact on business.</li>
+        <li>Conducted RHEL/SuSE vulnerability assessments and mitigation.</li>
+        <li>Automated tasks and managed configurations with Ansible & Ansible Tower.</li>
+        <li>Patch and upgrade Linux environments (SUSE 11/12, RHEL 6/7/8).</li>
+        <li>Monitored server performance (disk, memory, CPU) and maintained uptime.</li>
+        <li>Applied ITIL processes for incident, change, and problem management.</li>
+        <li>Configured Azure VMs, storage accounts, VNET, NSG, Load Balancer, Subnet, VPC, DNS & VPN.</li>
+        <li>Configured diagnostics, monitoring, Log Analytics, and Recovery Service vaults.</li>
+        <li>Managed disks, LVM file systems, RAID, and server outages using TOP, SAR, VMSTAT, IOSTAT.</li>
+        <li>Implemented KDUMP, NIC bonding, and provided 24x7 on-call support for critical production environments.</li>
       </ul>
     </div>
 
@@ -182,23 +405,33 @@
   <div class="section-container">
     <h2>Education</h2>
     <div class="edu-grid">
-      <div class="edu-card"><i class="fas fa-graduation-cap"></i><div><strong>B.Tech (CSE)</strong> – JNTU Kakinada | 65%</div></div>
-      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Intermediate (MPC)</strong> | 70%</div></div>
-      <div class="edu-card"><i class="fas fa-school"></i><div><strong>SSC</strong> | 76%</div></div>
+      <div class="edu-card"><i class="fas fa-graduation-cap"></i><div><strong>Bachelor of Technology (CSE) JNTU University KAKINADA </strong> (2009-2013)</div></div>
+      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Board of Intermediate Education, A.P. (MPC)</strong> (2007-2009)</div></div>
+      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Board of secondary Education, A.P. </strong> (2007-2008)</div></div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
+<!-- CERTIFICATES -->
 <section id="certifications" class="fade-in">
   <div class="section-container">
     <h2>Certifications</h2>
     <div class="certificates-grid">
-      <div class="cert-card"><span>RHCE – Red Hat Certified Engineer</span></div>
-      <div class="cert-card"><span>ITIL Foundation</span></div>
-      <div class="cert-card"><span>G42 Cloud Associate</span></div>
-      <div class="cert-card"><span>OCI Fundamental Associate</span></div>
-      <div class="cert-card"><span>Azure Solution Architect</span></div>
+      
+      <div class="cert-card">
+        <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="AZ-104 Azure Administrator">
+        <span>AZ-104 Azure Administrator</span>
+      </div>
+      
+      <div class="cert-card">
+        <img src="https://images.credly.com/size/680x680/images/0dc62494-dc94-469a-83af-e35309f27356/blob" alt="Terraform Associate 003">
+        <span>Terraform Associate 003</span>
+      </div>
+      
+      <div class="cert-card">
+        <img src="https://images.credly.com/size/680x680/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="Red Hat Certified System Administrator">
+        <span>Red Hat Certified System Administrator</span>
+      </div>     
     </div>
   </div>
 </section>
@@ -207,19 +440,93 @@
 <section id="contact" class="fade-in">
   <div class="section-container">
     <h2>Contact Me</h2>
+    <p style="text-align:center;margin-bottom:40px;">Interested in hiring me? Let's discuss. Send me a message and I'll respond as soon as possible.</p>
     <div class="contact">
-      <p style="text-align:center;">Email: suraganijanakiram@gmail.com | Phone: +971 588531465</p>
+      <form id="contact-form" action="https://formspree.io/f/mpqagwnz" method="POST">
+        <input type="hidden" name="_replyto" value="suraganijanakiram@gmail.com">
+        <input type="hidden" name="_subject" value="New Portfolio Contact - Platform/Linux Support Engineer">
+        <input type="text" name="_gotcha" style="display:none">
+        <div class="form-group"><i class="fas fa-user"></i><input type="text" id="name" name="name" placeholder="Full Name *" required></div>
+        <div class="form-group"><i class="fas fa-envelope"></i><input type="email" id="email" name="email" placeholder="Email Address *" required></div>
+        <div class="form-group"><i class="fas fa-phone"></i><input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)"></div>
+        <div class="form-group"><i class="fas fa-comment-alt"></i><textarea id="message" name="message" rows="6" placeholder="Your Message *" required></textarea></div>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+      <div style="text-align:center;margin-top:30px;padding-top:30px;border-top:1px solid #eee;">
+        <p style="margin-bottom:20px;color:#666;">Or contact me directly:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;">
+          <a href="mailto:suraganijanakiram@gmail.com" style="display:inline-flex;align-items:center;gap:8px;color:#4CAF50;text-decoration:none;"><i class="fas fa-envelope"></i> suraganijanakiram@gmail.com</a>
+          <a href="tel:+971588531465" style="display:inline-flex;align-items:center;gap:8px;color:#4CAF50;text-decoration:none;"><i class="fas fa-phone"></i> +971 588531465</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="fade-in">
-  <p>&copy; 2025 Janakiram Suragani — Platform Support Engineer</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/suraganijanakiram/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/suraganijanakiram/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="mailto:suraganijanakiram@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="tel:+971588531465"><i class="fas fa-phone"></i> Phone</a>
+  </div>
+  <p>&copy; 2026 Janakiram Suragani — Platform/Linux Support Engineer. All rights reserved.</p>
+  <a href="#home" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
 </footer>
 
-<!-- SAME JS AS ORIGINAL — UNCHANGED -->
 <script>
-/* paste your original JS here */
+// Scroll progress, active nav, fade-in
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const progress = document.getElementById('scroll-progress');
+const header = document.querySelector('header');
+
+function checkFadeIn() {
+  document.querySelectorAll('.fade-in').forEach(el => {
+    let top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 150) el.classList.add('fade-visible');
+  });
+}
+
+window.addEventListener('scroll', function() {
+  let scrollY = window.scrollY;
+  header.classList.toggle('scrolled', scrollY > 20);
+  progress.style.width = (scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+
+  sections.forEach(sec => {
+    let top = sec.offsetTop - 120;
+    let bottom = top + sec.offsetHeight;
+    let id = sec.getAttribute('id');
+    if (scrollY >= top && scrollY < bottom) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      document.querySelector('.nav-link[href="#' + id + '"]').classList.add('active');
+    }
+  });
+
+  if (scrollY < 100) {
+    navLinks.forEach(link => link.classList.remove('active'));
+    document.querySelector('.nav-link[href="#home"]').classList.add('active');
+  }
+
+  checkFadeIn();
+});
+
+window.addEventListener('load', checkFadeIn);
+
+// ===== MOBILE MENU TOGGLE =====
+const navToggle = document.getElementById('nav-toggle');
+const nav = document.getElementById('main-nav');
+navToggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+// ===== CLOSE MOBILE MENU ON LINK CLICK =====
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active');
+    }
+  });
+});
 </script>
 
 </body>
