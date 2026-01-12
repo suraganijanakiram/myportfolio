@@ -1,0 +1,126 @@
+<!-- certifications.html -->
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div id="badge-grid"></div>
+</section>
+
+<!-- Modal for large badge view -->
+<div id="badge-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <img class="modal-content" id="modal-img">
+  <div id="modal-caption"></div>
+</div>
+
+<style>
+  #badge-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .cert-card {
+    width: 150px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .cert-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .cert-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  }
+
+  .cert-card span {
+    display: block;
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    border-radius: 8px;
+  }
+
+  #modal-caption {
+    margin: 15px auto;
+    text-align: center;
+    color: #fff;
+    font-size: 1em;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .modal-close:hover {
+    color: #bbb;
+  }
+</style>
+
+<script>
+  const badges = [
+    {
+      "name": "RHCSA in OpenStack",
+      "image": "https://images.credly.com/size/340x340/images/8118cb0e-f3f4-4a9c-8f72-c465bea24573/image.png",
+      "url": "https://www.credly.com/badges/8118cb0e-f3f4-4a9c-8f72-c465bea24573"
+    },
+    {
+      "name": "Another Badge",
+      "image": "https://images.credly.com/size/340x340/images/ANOTHER_BADGE_ID/image.png",
+      "url": "https://www.credly.com/badges/ANOTHER_BADGE_ID"
+    }
+    // Add more badges here
+  ];
+
+  const grid = document.getElementById('badge-grid');
+  badges.forEach(badge => {
+    const card = document.createElement('div');
+    card.className = 'cert-card';
+    card.innerHTML = `
+      <img src="${badge.image}" alt="${badge.name}" data-url="${badge.url}" data-name="${badge.name}">
+      <span>${badge.name}</span>
+    `;
+    grid.appendChild(card);
+  });
+
+  const modal = document.getElementById("badge-modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalCaption = document.getElementById("modal-caption");
+  const closeBtn = document.getElementsByClassName("modal-close")[0];
+
+  document.querySelectorAll('.cert-card img').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      modalCaption.innerHTML = `<a href="${img.dataset.url}" target="_blank" style="color:#fff;">${img.dataset.name}</a>`;
+    });
+  });
+
+  closeBtn.onclick = () => { modal.style.display = "none"; }
+  modal.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
+</script>
