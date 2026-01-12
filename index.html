@@ -191,22 +191,7 @@ h2{
 .edu-card i{font-size:2rem;color:#4CAF50;margin-top:5px;}
 .edu-card div{flex:1;}
 .edu-card strong{font-size:1.1rem;display:block;margin-bottom:5px;}
-
-/* ===== CERTIFICATIONS =====
-.certificates-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-.cert-card{
-  background:#fff;border-radius:10px;padding:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-  display:flex;align-items:center;gap:15px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.cert-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.15);}
-.cert-card img{width:50px;height:50px;object-fit:contain;flex-shrink:0;}
-*/
+  
 
 /* ===== CERTIFICATIONS GRID ===== */
 .certificates-grid {
@@ -243,8 +228,8 @@ h2{
 }
 
 .cert-card img {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -346,6 +331,31 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
   </div>
 </section>
 
+
+<!-- PROFESSIONAL SUMMARY -->
+<section id="experience" class="fade-in">
+  <div class="section-container">
+    <h2>PROFESSIONAL SUMMARY</h2>
+  
+<div class="box">
+  <strong><i class="fas fa-user-tie" style="margin-right:6px;color:#9C27B0;"></i>Professional Summary</strong>
+  <ul>
+    <li>Platform Support and Linux Engineer with 12+ years of experience managing Linux-based infrastructure across enterprise data centers, virtualization, and cloud environments.</li>
+    <li>Expert in Linux administration (RHEL, Ubuntu, CentOS, EulerOS), cloud platforms, VMware, and 24/7 production support for mission-critical workloads.</li>
+    <li>Hands-on experience in DevOps, automation, and configuration management using Ansible, AWX, Bash scripting, and CI/CD pipelines.</li>
+    <li>Proficient in containerization and orchestration with Docker Swarm and Kubernetes, including deployment of stateful applications with persistent storage.</li>
+    <li>Strong knowledge of ITIL and Agile (Scrum) methodologies; skilled in creating SOPs, operational processes, and leading teams to deliver projects successfully.</li>
+    <li>Extensive expertise in monitoring, logging, and observability using Zabbix, Grafana, Cloud Scope, Cloud Eye, ELK Stack, and performance tuning tools.</li>
+    <li>Experienced in cloud security, OS hardening, patch management, IAM, PKI, HSM administration, and vulnerability remediation.</li>
+    <li>Proven ability to design, implement, and maintain high-availability platforms using load balancers, autoscaling, backup/recovery strategies, and HA infrastructure components.</li>
+    <li>Skilled in troubleshooting server, network, and application issues, performing root cause analysis (RCA), and ensuring SLA compliance in 24/7 production environments.</li>
+    <li>Strong documentation and knowledge-sharing skills; adept at preparing operational runbooks, implementation guides, and internal knowledge bases for cross-functional teams.</li>
+  </ul>
+</div>
+
+    </div>
+</section>
+  
 <!-- TECHNICAL SKILLS -->
 <section id="skills" class="fade-in">
   <div class="section-container">
@@ -372,75 +382,149 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
   <div class="section-container">
     <h2>Experience</h2>
     
-    <div class="box">
-      <strong><i class="fas fa-building" style="margin-right:6px;color:#4CAF50;"></i>Tesnus Technologies – Cloud Support Engineer</strong> (April 2025 - Present) | Abu Dhabi, UAE
-      <ul>
-        <li>Configure Linux Servers on both cloud and VMware as per client requirements.</li>
-        <li>Implement and enforce baseline OS security configurations and hardening.</li>
-        <li>Patch servers including VM Based with Ansible & Kubernetes nodes.</li>
-        <li>Manage log pipelines using Filebeat, Logstash, Elasticsearch.</li>
-        <li>Monitor cloud infrastructure using Cloud Scope, Cloud Eye, Zabbix, and Grafana.</li>
-        <li>Configure Cloud Scope alarms with SNS for instance state notifications.</li>
-        <li>Manage ECS resources (disks, memory, NICs, EIPs, CPUs) and scale as needed.</li>
-        <li>Install and configure applications on Docker containers.</li>
-        <li>Maintain internal tools: Barman, PrivateBin, FreeIPA IDM, F5 Load Balancer.</li>
-        <li>Administer HSMs (Utimaco) and PKI infrastructure including TLS certificates and local CA.</li>
-        <li>Manage VPN gateway authentication and role-based access controls.</li>
-        <li>Handle hardware fault management including component replacements (Disk, CPU, RAM).</li>
-      </ul>
-    </div>
+   <div class="box">
+  <strong><i class="fas fa-building" style="margin-right:6px;color:#4CAF50;"></i>Tesnus Technologies – Platform Support Engineer / Systems Administrator</strong> (April 2025 - Present) | Abu Dhabi, UAE
+  <ul>
+    <li>Provision, configure, and manage Linux servers (RHEL, Ubuntu, EulerOS, CentOS) across dedicated, virtual, and G42 Cloud environments.</li>
+    <li>Implement OS hardening, baseline security configurations, and vulnerability remediation.</li>
+    <li>Perform patching of virtual machines and Kubernetes nodes using Ansible automation.</li>
+    <li>Monitor infrastructure availability and performance using Zabbix, Cloud Scope, Cloud Eye, and Grafana.</li>
+    <li>Configure Cloud Scope alarms integrated with SNS for instance health and state notifications.</li>
+    <li>Manage ECS resources including CPU, memory, disks, NICs, EIPs, and perform capacity scaling.</li>
+    <li>Install and manage Docker Swarm clusters; deploy and operate containerized applications.</li>
+    <li>Deploy persistent container storage using GlusterFS and integrate with Docker workloads.</li>
+    <li>Maintain and support internal platform services such as Grafana, DNS, SMTP (OpenDKIM), LAMP stack, Bareos, Barman, PrivateBin, and FreeIPA IDM.</li>
+    <li>Manage centralized logging pipelines using Filebeat, Logstash, and Elasticsearch (ELK Stack).</li>
+    <li>Administer HSM (Utimaco) devices and PKI infrastructure including TLS certificates and local Certificate Authority.</li>
+    <li>Manage VPN gateways, authentication mechanisms, and role-based access control (RBAC).</li>
+    <li>Handle hardware fault management including disk, RAM, CPU replacements and coordination with vendors.</li>
+    <li>Prepare and maintain technical documentation, implementation guides, and operational runbooks.</li>
+    <li>Resolve platform-level incidents using Jira while meeting SLA and uptime requirements.</li>
+  </ul>
+</div>
+
+    
+   <div class="box">
+  <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#2196F3;"></i>Core42 (G42 Cloud) – System Administrator</strong> (June 2022 - March 2025) | Abu Dhabi, UAE
+  <ul>
+    <li>Provisioned and administered Linux-based cloud infrastructure across G42 Cloud platforms.</li>
+    <li>Created and managed compute, networking, storage, autoscaling, and load balancer services.</li>
+    <li>Configured Elastic Load Balancers and Auto Scaling for high availability and resilience.</li>
+    <li>Performed quarterly patching, OS hardening, and vulnerability remediation on VMs and Kubernetes CDK clusters.</li>
+    <li>Monitored infrastructure health and availability using Zabbix, Cloud Scope, Cloud Eye, and Grafana.</li>
+    <li>Configured IAM users, groups, and roles for secure access management within infrastructure tenants.</li>
+    <li>Managed ECS resources including disk expansion, CPU/memory scaling, and network interfaces.</li>
+    <li>Configured centralized package repositories using Nexus and performed basic database administration (MySQL, PostgreSQL).</li>
+    <li>Automated configuration management using Ansible and AWX, including HAProxy application deployments.</li>
+    <li>Integrated Ansible playbooks with GitLab CI/CD pipelines for infrastructure automation.</li>
+    <li>Maintained high availability for critical internal services such as Zabbix, FreeIPA, GitLab, Vault, AWX, NetBox, Jira Service Desk, and Confluence using HAProxy.</li>
+    <li>Managed Docker Swarm clusters hosting applications like Jira, Confluence, Grafana, PrivateBin, MySQL, and Team Password Manager with GlusterFS storage.</li>
+    <li>Enabled backup and recovery using server-level and disk-level backup vaults.</li>
+    <li>Handled Level 2 cloud service incidents and performed root cause analysis (RCA) as per SLA.</li>
+    <li>Authored technical documentation in Confluence and tracked issues, bugs, and changes using Jira.</li>
+  </ul>
+</div>
+
     
     <div class="box">
-      <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#2196F3;"></i>Core42 – System Administrator</strong> (July 2022 - March 2025) | Abu Dhabi, UAE
-      <ul>
-        <li>Create, configure, and implement compute, network, storage & enterprise intelligence services.</li>
-        <li>Setup Autoscaling and Elastic Load Balancers for availability and stability.</li>
-        <li>Enable backups and restore from server and disk backup vaults.</li>
-        <li>Handle hardware fault management including replacements.</li>
-        <li>Perform quarterly patching on VM and Kubernetes CDK clusters; security baseline configurations and vulnerability remediation.</li>
-        <li>Configure and monitor cloud infrastructure using Cloud Scope, Cloud Eye, Zabbix, and Grafana.</li>
-        <li>Setup IAM for users and groups in Infra Tenants.</li>
-        <li>Manage ECS resources and scale infrastructure as needed.</li>
-        <li>Configure local package repositories with Nexus and basic DB administration (Oracle, PostgreSQL).</li>
-        <li>Use Ansible & Ansible Tower for patching and server migration.</li>
-        <li>Manage FreeIPA IDM for user access, SSL certificate renewals, and DNS management.</li>
-        <li>Work with HAProxy to ensure stability of internal applications (Zabbix, FreeIPA, GitLab, Vault, AWX, NetBox, ServiceDesk (JIRA), Confluence).</li>
-        <li>Integrate Ansible playbooks in GitLab CI/CD pipelines for automation.</li>
-        <li>Resolve Level 2 cloud service incidents as per SLA.</li>
-        <li>Work on Docker containers for web and DB servers.</li>
-        <li>Write technical/internal documentation in Confluence and perform RCA & bug reporting in JIRA.</li>
-      </ul>
-    </div>
-    
+    <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>Rackspace Technology – Linux Support Engineer II</strong> (Feb 2021 - May 2022) | Bangalore, India
+    <ul>
+    <li>Provisioned, configured, and administered Linux servers (RHEL, Ubuntu, CentOS) across Dedicated, Virtual, and Rackspace Cloud environments.</li>
+    <li>Provided 24/7 production support for large-scale cloud infrastructure supporting 10,000+ customers.</li>
+    <li>Automated routine administrative tasks using Bash shell scripting to improve operational efficiency.</li>
+    <li>Installed, configured, and maintained core services including Apache, MySQL, PHP, PHP-FPM, FTP, NFS, NTP, and Docker containers.</li>
+    <li>Monitored system health, availability, and performance using sar, iostat, vmstat, uptime, and system logs.</li>
+    <li>Troubleshot CPU, memory, disk, and network performance issues; performed capacity planning and tuning.</li>
+    <li>Managed incidents, changes, and service requests using ServiceNow in alignment with ITIL best practices.</li>
+    <li>Collaborated with cross-functional teams and vendors to resolve critical incidents and implement permanent fixes.</li>
+    <li>Supported high-availability production workloads, ensuring SLA compliance and minimal downtime.</li>
+    <li>Installed and managed caching and messaging services such as Redis and Memcached for performance optimization.</li>
+   </ul>
+   </div>
+
+   <div class="box">
+    <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>GLOBALFOUNDRIES – Sr Eng IT Engn</strong> (Apr 2019 - Feb 2021) | Bangalore, India
+    <ul>
+    <li>Installed and administered Red Hat Enterprise Linux and CentOS on physical and virtual servers in a semiconductor manufacturing environment.</li>
+    <li>Configured server hardware components including iLO, RAID controllers, and BIOS to meet enterprise build standards.</li>
+    <li>Provisioned and supported virtual machines using templates in RHEV environments.</li>
+    <li>Implemented monitoring solutions using Grafana, InfluxDB, and Telegraf for real-time performance visualization.</li>
+    <li>Built custom Grafana dashboards and integrated servers for infrastructure monitoring.</li>
+    <li>Installed and tested ELK stack for centralized logging and observability.</li>
+    <li>Automated Telegraf agent deployment using Ansible roles.</li>
+    <li>Installed, configured, and managed Ansible Tower for centralized automation.</li>
+    <li>Maintained 99% uptime for mission-critical semiconductor fabrication servers.</li>
+    <li>Administered and supported SFTP servers, ensuring availability and secure data transfer.</li>
+   </ul>
+  </div>
+
+<div class="box">
+  <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>Optum (UnitedHealth Group) – Sr Systems Mgmt Analyst</strong> (Oct 2016 - Apr 2019) | Hyderabad, India
+  <ul>
+    <li>Promoted from Systems Management Analyst to Senior Systems Management Analyst based on performance.</li>
+    <li>Led and managed a team of 10 engineers supporting enterprise Linux infrastructure.</li>
+    <li>Provisioned physical servers using Foreman for automated OS deployment.</li>
+    <li>Configured iLO, RAID controllers, and hardware standards during server build lifecycle.</li>
+    <li>Provisioned and supported Linux virtual machines and performed VMware administration tasks.</li>
+    <li>Automated infrastructure tasks using Ansible playbooks and CI pipelines in Jenkins.</li>
+    <li>Maintained automation code and scripts using Git and internal GitHub repositories.</li>
+    <li>Managed build and release operations using HPSA and monitored systems via HPOV.</li>
+    <li>Performed LVM management, disk expansion, package management, and OS troubleshooting.</li>
+    <li>Monitored system performance using top, iftop, netstat, sar, and related tools.</li>
+    <li>Worked in Agile Scrum methodology and supported US clients during night shifts.</li>
+    <li>Handled incidents and service requests using ServiceNow and coordinated with vendors and OEMs.</li>
+  </ul>
+</div>
+
+
     <div class="box">
-      <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>Maersk – Linux Cloud Support Engineer</strong> (Feb 2022 - April 2022) | Bangalore, India
-      <ul>
-        <li>Install, configure, and deploy RedHat and SuSE Linux VMs in Azure Cloud.</li>
-        <li>Troubleshoot Linux VM issues and perform patching using Ansible Automation.</li>
-        <li>Manage Azure subscriptions, networking, DNS, and storage volumes (LVM).</li>
-        <li>Commission and decommission servers; schedule snoozing and maintain time sync (NTP, Chrony).</li>
-        <li>Restart, start, stop, and reload required processes; troubleshoot swap space, CPU, and memory utilization.</li>
-        <li>Configure Ethernet and storage switching, LVM management, and server performance tuning.</li>
-      </ul>
-    </div>
-    
+  <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>CTRLS Data Centers – Linux Engineer</strong> (Nov 2015 - Oct 2016) | Hyderabad, India
+  <ul>
+    <li>Installed, configured, and managed Linux servers (RHEL, CentOS, Ubuntu) in a data center environment.</li>
+    <li>Provided 24/7 production support for banking and financial clients.</li>
+    <li>Delivered services following ITIL processes and SLA commitments.</li>
+    <li>Troubleshot incidents via Kayako ticketing system supporting 3000+ customers.</li>
+    <li>Installed and administered services including Apache, Tomcat, MySQL, FTP, NFS, NTP, and mail servers.</li>
+    <li>Configured monitoring tools such as Nagios, MRTG, and Syslog for infrastructure visibility.</li>
+    <li>Performed RAID, LVM, disk management, backups, and package management.</li>
+    <li>Maintained DNS services and resolved application-level issues through log analysis.</li>
+    <li>Performed hardware troubleshooting using KVM switches and on-site data center access.</li>
+    <li>Developed shell scripts to automate monitoring and operational tasks.</li>
+  </ul>
+</div>
+
+
     <div class="box">
-      <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#9C27B0;"></i>Infosys – Technology Analyst</strong> (Aug 2017 - Jan 2022) | Bangalore, India
-      <ul>
-        <li>Provided L1 & L2 Linux system administration support for 1300+ Red Hat and SuSE servers.</li>
-        <li>Managed file systems, package installations/upgrades with YUM, RPM, and ZYPPER.</li>
-        <li>Migrated critical production servers without impact on business.</li>
-        <li>Conducted RHEL/SuSE vulnerability assessments and mitigation.</li>
-        <li>Automated tasks and managed configurations with Ansible & Ansible Tower.</li>
-        <li>Patch and upgrade Linux environments (SUSE 11/12, RHEL 6/7/8).</li>
-        <li>Monitored server performance (disk, memory, CPU) and maintained uptime.</li>
-        <li>Applied ITIL processes for incident, change, and problem management.</li>
-        <li>Configured Azure VMs, storage accounts, VNET, NSG, Load Balancer, Subnet, VPC, DNS & VPN.</li>
-        <li>Configured diagnostics, monitoring, Log Analytics, and Recovery Service vaults.</li>
-        <li>Managed disks, LVM file systems, RAID, and server outages using TOP, SAR, VMSTAT, IOSTAT.</li>
-        <li>Implemented KDUMP, NIC bonding, and provided 24x7 on-call support for critical production environments.</li>
-      </ul>
-    </div>
+  <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>CTRLS Data Centers – Linux Engineer</strong> (Nov 2015 - Oct 2016) | Hyderabad, India
+  <ul>
+    <li>Installed, configured, and managed Linux servers (RHEL, CentOS, Ubuntu) in a data center environment.</li>
+    <li>Provided 24/7 production support for banking and financial clients.</li>
+    <li>Delivered services following ITIL processes and SLA commitments.</li>
+    <li>Troubleshot incidents via Kayako ticketing system supporting 3000+ customers.</li>
+    <li>Installed and administered services including Apache, Tomcat, MySQL, FTP, NFS, NTP, and mail servers.</li>
+    <li>Configured monitoring tools such as Nagios, MRTG, and Syslog for infrastructure visibility.</li>
+    <li>Performed RAID, LVM, disk management, backups, and package management.</li>
+    <li>Maintained DNS services and resolved application-level issues through log analysis.</li>
+    <li>Performed hardware troubleshooting using KVM switches and on-site data center access.</li>
+    <li>Developed shell scripts to automate monitoring and operational tasks.</li>
+  </ul>
+</div>
+
+
+    <div class="box">
+  <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>Voxvalley Technologies – Trainee Network Engineer</strong> (Mar 2014 - Nov 2015) | Hyderabad, India
+  <ul>
+    <li>Installed and administered Linux servers (CentOS, Ubuntu) and Windows systems.</li>
+    <li>Performed system administration tasks including user management, disk partitioning, and backups.</li>
+    <li>Configured and troubleshot FTP, Apache, MySQL, VNC, and VOIP servers.</li>
+    <li>Handled basic networking tasks including cable crimping and network setup.</li>
+    <li>Managed storage using LVM and RAID configurations.</li>
+    <li>Installed and configured Nagios for monitoring and email alerting.</li>
+    <li>Performed MySQL backup and restore operations.</li>
+    <li>Wrote shell scripts to support automation and monitoring tasks.</li>
+  </ul>
+</div>
+
 
   </div>
 </section>
@@ -450,9 +534,9 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
   <div class="section-container">
     <h2>Education</h2>
     <div class="edu-grid">
-      <div class="edu-card"><i class="fas fa-graduation-cap"></i><div><strong>Bachelor of Technology (CSE) JNTU University KAKINADA </strong> (2009-2013)</div></div>
-      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Board of Intermediate Education, A.P. (MPC)</strong> (2007-2009)</div></div>
-      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Board of secondary Education, A.P. </strong> (2007-2008)</div></div>
+      <div class="edu-card"><i class="fas fa-graduation-cap"></i><div><strong>Bachelor of Technology (CSE) JNTU University KAKINADA </strong> (2010-2013)</div></div>
+      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Board of Intermediate Education, A.P. (MPC)</strong> (2008-2009)</div></div>
+      <div class="edu-card"><i class="fas fa-school"></i><div><strong>Board of secondary Education, A.P. </strong> (2007)</div></div>
     </div>
   </div>
 </section>
