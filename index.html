@@ -440,16 +440,8 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
 </section>
 
 
-  <div id="certifications-container"></div>
+<iframe src="certifications.html" style="width:100%; border:none; min-height:600px;"></iframe>
 
-<script>
-  fetch('certifications.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('certifications-container').innerHTML = html;
-    })
-    .catch(err => console.error('Failed to load certifications:', err));
-</script>
 
 <!-- CONTACT -->
 <section id="contact" class="fade-in">
