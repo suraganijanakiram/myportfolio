@@ -433,23 +433,16 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
         <span>RHCSA in OPENSTACK</span>
       </div>
 
+<div id="certifications-container"></div>
 
-
-
-<div data-iframe-width="100%" 
-     data-iframe-height="800" 
-     data-share-profile-id="janakiram-suragani" 
-     data-share-profile-host="https://www.credly.com">
-</div>
-<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-
-
-     <iframe
-  src="https://www.credly.com/users/janakiram-suragani/badges"
-  width="100%"
-  height="800"
-  style="border:none;">
-</iframe>
+<script>
+  fetch('certifications.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('certifications-container').innerHTML = html;
+    })
+    .catch(err => console.error('Failed to load certifications:', err));
+</script>
 
 
 
