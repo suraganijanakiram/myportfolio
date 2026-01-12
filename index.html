@@ -229,9 +229,17 @@ h2{
   gap: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;  /* remove underline */
-  color: inherit;         /* keep text color normal */
+  color: inherit;         /* normal text color */
 }
 
+/* Remove underline from span inside link */
+.cert-card span {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none !important;  /* ensures no underline */
+}
+
+/* Hover effect */
 .cert-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0,0,0,.15);
@@ -244,11 +252,7 @@ h2{
   flex-shrink: 0;
 }
 
-.cert-card span {
-  font-weight: bold;
-  color: #333;  /* normal text color, no hyperlink look */
-}
-  
+
 
   
 /* ===== CONTACT ===== */
@@ -465,7 +469,7 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
       <div class="cert-card">
          <a href="https://rhtapps.redhat.com/verify?certId=140-026-360" target="_blank" rel="noopener noreferrer">
         <img src="https://images.credly.com/size/340x340/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="RHCSA">
-        <span>RHCSA test</span> </a>
+        <span>RHCSA</span> </a>
       </div>
       
       <div class="cert-card">
