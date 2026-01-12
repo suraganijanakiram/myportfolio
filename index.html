@@ -192,7 +192,7 @@ h2{
 .edu-card div{flex:1;}
 .edu-card strong{font-size:1.1rem;display:block;margin-bottom:5px;}
 
-/* ===== CERTIFICATIONS ===== */
+/* ===== CERTIFICATIONS =====
 .certificates-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -206,7 +206,51 @@ h2{
 }
 .cert-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.15);}
 .cert-card img{width:50px;height:50px;object-fit:contain;flex-shrink:0;}
+*/
 
+
+
+
+/* ===== CERTIFICATIONS GRID ===== */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Make the whole card clickable */
+.cert-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;  /* remove underline */
+  color: inherit;         /* keep text color normal */
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
+
+.cert-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cert-card span {
+  font-weight: bold;
+  color: #333;  /* normal text color, no hyperlink look */
+}
+  
+
+  
 /* ===== CONTACT ===== */
 .contact {max-width: 700px;margin: auto;}
 .contact .form-group {position: relative;margin-bottom: 20px;}
