@@ -187,6 +187,15 @@ h2{
 .skill-ticket h3,
 .skill-ticket h3 i { color:#4CAF50; }
 
+.sr-only {
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  border:0;
+}
+ 
 /* ===== EDUCATION ===== */
 .edu-grid{
   display:grid;
@@ -313,8 +322,8 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
     <div class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></div>
     <nav id="main-nav">
       <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
-       <a href="#summary" class="nav-link"><i class="fas fa-home"></i> Summary</a>
-      <a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Technical Skills</a>
+       <a href="#summary" class="nav-link"><i class="fas fa-user"></i> Summary</a>
+      <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Technical Skills</a>
       <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
       <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
       <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
@@ -643,7 +652,10 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
         <input type="hidden" name="_replyto" value="suraganijanakiram@gmail.com">
         <input type="hidden" name="_subject" value="New Portfolio Contact - Platform/Linux Support Engineer">
         <input type="text" name="_gotcha" style="display:none">
-        <div class="form-group"><i class="fas fa-user"></i><input type="text" id="name" name="name" placeholder="Full Name *" required></div>
+      <!-- <div class="form-group"><i class="fas fa-user"></i><input type="text" id="name" name="name" placeholder="Full Name *" required></div> -->
+        /* <div class="form-group"><i class="fas fa-user"></i><label for="name" class="sr-only">Full Name</label><input id="name" name="name" type="text" placeholder="Full Name *" required></div>
+
+        
         <div class="form-group"><i class="fas fa-envelope"></i><input type="email" id="email" name="email" placeholder="Email Address *" required></div>
         <div class="form-group"><i class="fas fa-phone"></i><input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)"></div>
         <div class="form-group"><i class="fas fa-comment-alt"></i><textarea id="message" name="message" rows="6" placeholder="Your Message *" required></textarea></div>
@@ -671,7 +683,7 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
     <a href="tel:+971588531465"><i class="fas fa-phone"></i> Phone</a>
   </div>
   <p>&copy; 2026 Janakiram Suragani — Platform/Linux Support Engineer. All rights reserved.</p>
-  <a href="#home" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
+  <a href="#home" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 </footer>
 
 <script>
@@ -706,13 +718,12 @@ if (activeLink) activeLink.classList.add('active');
     }
   });
 
-  if (scrollY < 100) {
-    navLinks.forEach(link => link.classList.remove('active'));
-/*    document.querySelector('.nav-link[href="#home"]').classList.add('active'); */
-const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
-if (activeLink) activeLink.classList.add('active');
+if (scrollY < 100) {
+  navLinks.forEach(link => link.classList.remove('active'));
+  const homeLink = document.querySelector('.nav-link[href="#home"]');
+  if (homeLink) homeLink.classList.add('active');
+}
 
-  }
 
   checkFadeIn();
 });
@@ -724,6 +735,14 @@ const navToggle = document.getElementById('nav-toggle');
 const nav = document.getElementById('main-nav');
 navToggle.addEventListener('click', () => nav.classList.toggle('active'));
 
+
+navToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  document.body.style.overflow =
+    nav.classList.contains('active') ? 'hidden' : '';
+});
+
+  
 // ===== CLOSE MOBILE MENU ON LINK CLICK =====
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
