@@ -78,8 +78,41 @@ summary:focus {
   outline: 2px solid #4CAF50;
 }
 @media print {
-  header, footer, #scroll-progress, .nav-toggle { display:none; }
-  body { background:#fff; }
+  /* Hide non-print elements */
+  header,
+  footer,
+  #scroll-progress,
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Page background */
+  body {
+    background: #fff;
+  }
+
+  /* Links */
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* Sections */
+  section {
+    padding: 30px 0;
+  }
+
+  /* Headings */
+  h2 {
+    border: none;
+    padding-left: 0;
+  }
+
+  /* Cards / boxes */
+  .box {
+    box-shadow: none;
+    border-left: 2px solid #000;
+  }
 }
 
   
@@ -383,7 +416,7 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
   <div class="section-container">
     <h2>Professional Summary</h2>  
 <div class="box">
-  <strong><i class="fas fa-user-tie" style="margin-right:6px;color:#9C27B0;"></i>Professional Summary</strong>
+  <strong><i class="fas fa-user-tie" style="margin-right:6px;color:#9C27B0;"></i>Key Highlights</strong>
   <ul>
     <li>Platform Support and Linux Engineer with 12+ years of experience managing Linux-based infrastructure across enterprise data centers, virtualization, and cloud environments.</li>
     <li>Expert in Linux administration (RHEL, Ubuntu, CentOS, EulerOS), cloud platforms, VMware, and 24/7 production support for mission-critical workloads.</li>
