@@ -700,17 +700,49 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
     <h2>Contact Me</h2>
     <p style="text-align:center;margin-bottom:40px;">Interested in hiring me? Let's discuss. Send me a message and I'll respond as soon as possible.</p>
     <div class="contact">
+      
+ <!--      
       <form id="contact-form" action="https://formspree.io/f/mpqagwnz" method="POST">
         <input type="hidden" name="_replyto" value="suraganijanakiram@gmail.com">
         <input type="hidden" name="_subject" value="New Portfolio Contact - Platform/Linux Support Engineer">
         <input type="text" name="_gotcha" style="display:none">
-      <!-- <div class="form-group"><i class="fas fa-user"></i><input type="text" id="name" name="name" placeholder="Full Name *" required></div> -->
         <div class="form-group"><i class="fas fa-user"></i><label for="name" class="sr-only">Full Name</label><input id="name" name="name" type="text" placeholder="Full Name *" required></div>
         <div class="form-group"><i class="fas fa-envelope"></i><input type="email" id="email" name="email" placeholder="Email Address *" required></div>
         <div class="form-group"><i class="fas fa-phone"></i><input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)"></div>
         <div class="form-group"><i class="fas fa-comment-alt"></i><textarea id="message" name="message" rows="6" placeholder="Your Message *" required></textarea></div>
         <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
       </form>
+ -->
+
+<form id="contact-form"
+      action="https://formspree.io/f/mpqagwnz"
+      method="POST"
+      accept-charset="UTF-8">
+
+  <input type="hidden" name="_subject"
+         value="New Portfolio Contact - Platform/Linux Support Engineer">
+
+  <div class="form-group">
+    <input type="text" name="name" placeholder="Full Name *" required>
+  </div>
+
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Email Address *" required>
+  </div>
+
+  <div class="form-group">
+    <textarea name="message" placeholder="Your Message *" required></textarea>
+  </div>
+
+<button type="submit">
+  <i class="fas fa-paper-plane"></i> Send Message
+</button>
+
+<p id="form-status"></p>
+
+</form>
+      
+      
       <div style="text-align:center;margin-top:30px;padding-top:30px;border-top:1px solid #eee;">
         <p style="margin-bottom:20px;color:#666;">Or contact me directly:</p>
         <div style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;">
@@ -798,7 +830,41 @@ navLinks.forEach(link => {
     }
   });
 });
+
+
+  
+const form = document.getElementById('contact-form');
+const status = document.getElementById('form-status');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      status.textContent = '✅ Message sent successfully!';
+      form.reset();
+    } else {
+      status.textContent = '❌ Failed to send message. Please try again.';
+    }
+  } catch (error) {
+    status.textContent = '❌ Network error. Please try again later.';
+  }
+});
+
+  
 </script>
+
+
 </body>
 
   
